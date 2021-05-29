@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>database demo</title>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js_tem/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>This is a demo of database operation</h1>
+
+<form id="form1">
+    <table>
+        <tr>
+            <td>id</td>
+            <td><input type="text" name="name" id="id"></td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td><input type="text" name="name" id="name"></td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td><input type="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="text" name="password" id="password"></td>
+        </tr>
+    </table>
+    <input type="button" value="add" onclick="add()">
+    <input type="button" value="edit" onclick="edit()" style="margin-left: 40px">
+</form>
+<br><br>
+<form>
+    <button onclick="deleteById()">delete</button>
+
+    <input type="number" id="delete">
+
+</form>
+<br><br><br>
+<button onclick="findAll()">findAll</button>
+
+
+</body>
+<script>
+    function add() {
+        var data = {
+            "name": $("#name").val(),
+            "username": $("#username").val(),
+            "password": $("#password").val(),
+        }
+        console.log(data)
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: "/User/add",
+            async: false,
+            data: JSON.stringify(data),
+            success: function (result) {
+                console.log(result)
+                if(result.code == 0){
+                    alert("successful")
+                }
+            },
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+    }
+
+    function edit() {
+        var data = {
+            "id": $("#id").val(),
+            "name": $("#name").val(),
+            "username": $("#username").val(),
+            "password": $("#password").val(),
+        }
+        console.log(data)
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: "/User/edit",
+            async: false,
+            data: JSON.stringify(data),
+            success: function (result) {
+                console.log(result)
+                if(result.code == 0){
+                    alert("successful")
+                }
+            },
+            error: function (e) {
+                console.log(e)
+            }
+
+        })
+    }
+
+    function findAll() {
+        $.ajax({
+            type:"GET",
+            url: "/User/findAll",
+            success: function (result) {
+                console.log(result)
+                alert("successful")
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        })
+    }
+
+    function deleteById() {
+        $.ajax({
+            type:"GET",
+            url: "/User/delete/" + $("#delete").val(),
+            success: function (result) {
+                console.log(result)
+                alert("successful")
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        })
+    }
+
+</script>
+</html>

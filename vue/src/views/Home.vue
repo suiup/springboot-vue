@@ -1,0 +1,90 @@
+<template>
+  <div class="home">
+
+    <div class=" centerbox_1">
+     <div class="change">
+      <a href="https://twitter.com/myharvestuk">
+        <span><img :src="twitterlogo" width="21" height="21" alt="" /></span>
+        <strong><img :src="twitterhighlight" width="22" height="22" alt=""/></strong>
+      </a>
+      <a href="https://www.instagram.com/myharvestuk/">
+        <span><img :src="Instagramlogo" width="21" height="21" alt=""/></span>
+        <strong><img :src="Instagramhighlight" width="22" height="22" alt=""/></strong>
+      </a>
+      <a href="https://www.facebook.com/MYHarvestUK">
+        <span><img :src="facebooklogo" width="21" height="21" alt=""/></span>
+        <strong> <img :src="facebookhighlight" width="22" height="22" alt=" "/></strong>
+      </a>
+     </div>
+    </div>
+    <img :src="myharvest" width=100%; />
+
+
+  </div>
+
+
+
+
+
+
+
+</template>
+
+<script>
+  export default {
+      name: "home",
+      data(){
+          return {
+              imgUrl : require("../assets/images.jpg"),
+              twitterlogo : require("../assets/twitterlogo.png"),
+              twitterhighlight : require("../assets/twitterhighlight.png"),
+              Instagramlogo : require("../assets/Instagramlogo.png"),
+              Instagramhighlight : require("../assets/Instagramhighlight.png"),
+              facebooklogo :require("../assets/facebooklogo.png"),
+              facebookhighlight :require("../assets/facebookhighlight.png"),
+              duihualiang_bg :require("../assets/duihualiamg-bg.png"),
+              myharvest :require("../assets/myharvest.png"),
+              myharvest1 :require("../assets/myharvest1.png"),
+              nav_hover_bg :require("../assets/nav-hover-bg.png"),
+              scales :require("../assets/scales.png"),
+              The_University_of_Sheffield:require("../assets/The University of Sheffield.png"),
+              title_bg :require("../assets/title-bg.png"),
+          }
+      }
+  };
+</script>
+
+<style scoped>
+@charset "utf-8";
+body { width:100%; padding:0; background-color:#EEEEEE;}
+* { font-size:18px; list-style:none; padding:0;}
+/*.top_bg{ width:100%; padding:0; height:96px;  background:url(./assets/title-bg.png) repeat-x 0 0 ; position:fixed; top:0; left:0; }*/
+.centerbox_1 {  width:95%; height:30px;margin:0 auto ;}
+.change { float:right; width:63px; height:21px; margin-top:5px}
+.change strong { display:none}
+.change span { display:block}
+.change a { float:right; width:21px; height:21px}
+.change a:hover span { display:none}
+.change a:hover strong{ display:block}
+.title{ float:left; width:98%;height:56px; z-index:99; text-align: center ;text-align:center }
+.topnav { float:left; width:98%; height:62px; ; margin-top:8px}
+.topnav li {float:left; width:5%; margin-left:1%; text-align:center; line-height:62px; color: #353535; font-size:8px;position:relative;}
+.topnav li a {  text-decoration:none;/*text decoration*/ display:block;/*show in block*/;color: #353535}
+/*.topnav li a:hover {background: url(src/assets/nav-hover-bg.png) repeat-x; color: #127f76; font-weight:bold; text-align: center}*/
+
+.submityourharvest {height:800px; font-size: 40px; font-weight: bold; text-align: center; color: #EEEEEE; background: coral;}
+.innertext{ padding-top:300px; padding-bottom: 25px; font-size: 40px; font-weight: bold; text-align: center; color: #EEEEEE; background: coral;}
+.button1  { background-color: #127f76;font-weight: bold;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;
+  font-size: 16px; border: none;}
+
+.FAQS {height:800px; font-size: 40px; font-weight: bold; text-align: center; color: coral; background: #EEEEEE;}
+.innertext1 { padding-left:30%; padding-top:200px; padding-bottom: 25px; font-size: 30px; font-weight: bold; text-align: left; color: coral; background: #EEEEEE;
+  list-style: decimal; }
+.innertext1 li {width: 100%; height: 50px; margin: 10px 0;}
+
+.others {height:800px; font-size: 40px; font-weight: bold; text-align: center; color: coral; background: #EEEEEE;}
+.innertext2 { padding-left:100px; padding-top:300px; padding-bottom: 25px; font-size: 40px; font-weight: bold; text-align: left; color: coral; background: #EEEEEE;}
+
+.usefullinks {height:800px; font-size: 40px; font-weight: bold; text-align: center; color: coral; background: #EEEEEE;}
+</style>
+

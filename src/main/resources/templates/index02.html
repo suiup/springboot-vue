@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <script th:src="@{/js/index.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+</head>
+<body>
+
+<p1>Main page</p1>
+
+<p th:text="'Hello, ' + ${name} + '!'" />
+<button onclick="demo03()">visit Demo/demo03</button><br>
+this is the web page <br><br>
+<a href="/Demo/database">jump to database html</a>
+</body>
+<script>
+
+    function demo02(){
+        var data = {
+            "id": 1,
+            "address": "Sheffield"
+        };
+        //visiting /Demo/demo03 interface
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            data: data,
+            async: false,
+            url: "/Demo/demo02",
+            success: function(data){
+                if(data.code == 0){
+                    alert("successful")
+                }
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        })
+
+    }
+
+</script>
+</html>

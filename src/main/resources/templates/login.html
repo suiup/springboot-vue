@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script th:src="@{/js/index.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+</head>
+<body>
+<h1>This is login page</h1>
+<form id="form1">
+    <table>
+        <tr>
+            <td>username</td>
+            <td><input type="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="text" name="password" id="password"></td>
+        </tr>
+    </table>
+    <input type="button" value="login" onclick="login()">
+</form>
+</body>
+<script>
+    function login(){
+        var data = {
+            "username": $("#username").val(),
+            "password": $("#password").val()
+        };
+        console.log(data)
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            data: data,
+            async: false,
+            url: "/User/login",
+            success: function(res){
+                console.log(res);
+                if(res.success){
+                    localStorage.setItem("token",res.data);
+                }
+                window.location.href = "/";
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        })
+
+    }
+</script>
+</html>
